@@ -1,4 +1,4 @@
-
+const tooltip = document.getElementById('tooltip');
 console.log('start');
 
 var width = $(window).width();
@@ -48,9 +48,40 @@ function createGraph(data) {
         .attr('x', (d, i) => i * barWidth + xPadding)
         .attr('y', d => yScale(d[1]) - yPadding + xyrPadding)
         .attr('width', barWidth)
-        .attr('height', d => height - yScale(d[1]) + yPadding + 'px');
+        .attr('height', d => height - yScale(d[1]) + yPadding + 'px')
+        .on('mousemove',  (d, item) => {
+            let yearLine = "";
+            switch(item[0].substring(5, 7)) {
+                case '01':
+                    yearLine = item[0].substring(0, 4) + ' Q1';
+                    break;
+                case '04':
+                    yearLine = item[0].substring(0, 4) + ' Q2';
+                    break;
+                case '07':
+                    yearLine = item[0].substring(0, 4) + ' Q3';
+                    break;
+                case '10':
+                    yearLine = item[0].substring(0, 4) + ' Q4';
+                    break;
+                default:
+                  // code block
+              };
+            let gdpLine = "$ " + item[1].toFixed(1).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' Billion' 
 
-    tooltop
+            console.log(d, item);
+            tooltip.style.left = d.pageX + xyrPadding + 'px';
+            tooltip.style.top = height + xyrPadding + 'px';
+            tooltip.innerHTML = yearLine + "<br/>" + gdpLine;
+            tooltip.setAttribute("data-date", item[0]);
+            
+
+        })
+        .on('mouseover', () => tooltip.style.visibility = "visible")
+        .on('mouseout', () => tooltip.style.visibility = "hidden")
+
+
+
     var xAxis = d3.axisBottom(xScale);
 
     var xAxisGroup = svg.append('g')
