@@ -1,22 +1,15 @@
 const tooltip = document.getElementById('tooltip');
-console.log('start');
 
-var width = $(window).width();
-console.log('screen width:', width);
 fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json')
     .then(res => res.json())
     .then(res => {
         const { data } = res;
-        console.log(data);
-        console.log(data.length);
         createGraph(data);
     })
 
-
 function createGraph(data) {
-    console.log(data);
-    var width = 800,
-        height = 400,
+    var width = $(window).width() - 480,
+        height = $(window).height() - 280,
         xPadding = 60,
         yPadding = 40,
         xyrPadding = 40,
@@ -24,7 +17,6 @@ function createGraph(data) {
 
     var xMax = new Date(d3.max(data, d => new Date(d[0])));
     xMax.setMonth(xMax.getMonth() + 3);
-    console.log('MYxMax:', d3.min(data, d => new Date(d[0])));
 
     var xScale = d3.scaleTime()
         .domain([d3.min(data, d => new Date(d[0])), xMax])
@@ -67,15 +59,13 @@ function createGraph(data) {
                 default:
                   // code block
               };
+
             let gdpLine = "$ " + item[1].toFixed(1).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' Billion' 
 
-            console.log(d, item);
             tooltip.style.left = d.pageX + xyrPadding + 'px';
             tooltip.style.top = height + xyrPadding + 'px';
             tooltip.innerHTML = yearLine + "<br/>" + gdpLine;
             tooltip.setAttribute("data-date", item[0]);
-            
-
         })
         .on('mouseover', () => tooltip.style.visibility = "visible")
         .on('mouseout', () => tooltip.style.visibility = "hidden")
