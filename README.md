@@ -12,6 +12,24 @@
 | **Tree map** | The top 100 highest-grossing movies | [Open demo →](https://engrbugs.github.io/D3BarChart/tree-map/) |
 | **Choropleth map** | US education attainment by county | [Open demo →](https://engrbugs.github.io/D3BarChart/choropleth-map/) |
 
+## Visual previews
+
+Click any preview to open the live interactive chart.
+
+<table>
+  <tr>
+    <td><a href="https://engrbugs.github.io/D3BarChart/bar-chart/"><img src="screenshots/bar-chart.png" alt="US GDP bar chart" width="420"></a></td>
+    <td><a href="https://engrbugs.github.io/D3BarChart/scatter-plot/"><img src="screenshots/scatter-plot.png" alt="Cycling scatter plot" width="420"></a></td>
+  </tr>
+  <tr>
+    <td><a href="https://engrbugs.github.io/D3BarChart/heat-map/"><img src="screenshots/heat-map.png" alt="Global temperature heat map" width="420"></a></td>
+    <td><a href="https://engrbugs.github.io/D3BarChart/tree-map/"><img src="screenshots/tree-map.png" alt="Movie revenue treemap" width="420"></a></td>
+  </tr>
+  <tr>
+    <td colspan="2"><a href="https://engrbugs.github.io/D3BarChart/choropleth-map/"><img src="screenshots/choropleth-map.png" alt="US education choropleth map" width="420"></a></td>
+  </tr>
+</table>
+
 ## Repository structure
 
 ```text
