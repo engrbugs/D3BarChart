@@ -2,6 +2,8 @@
 
 <p align="center"><strong>Data, with a point of view.</strong><br>Five interactive D3.js visualizations in one focused portfolio.</p>
 
+<p align="center"><a href="https://engrbugs.github.io/D3BarChart/">Open the live gallery →</a></p>
+
 ## Explore the gallery
 
 | Visualization | What it explores | Live demo |
